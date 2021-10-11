@@ -1,0 +1,3 @@
+export const GET_PLAYER_NAME = 'GET_PLAYER_NAME';
+export const GET_PLAYER_TOKEN = 'GET_PLAYER_TOKEN';
+export const GET_PLAYER_EMAIL = 'GET_PLAYER_EMAIL';
