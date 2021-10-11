@@ -1,5 +1,5 @@
 import {
-  GET_PLAYER_NAME, GET_PLAYER_EMAIL, GET_PLAYER_TOKEN } from '../actions/actionTypes';
+  SET_PLAYER_NAME, SET_PLAYER_EMAIL, SET_PLAYER_TOKEN } from '../actions/actionTypes';
 
 const INITIAL_PLAYER_STATE = {
   name: '',
@@ -9,17 +9,17 @@ const INITIAL_PLAYER_STATE = {
 
 export default (state = INITIAL_PLAYER_STATE, action) => {
   switch (action.type) {
-  case GET_PLAYER_NAME:
+  case SET_PLAYER_NAME:
     return {
       ...state,
       name: action.name,
     };
-  case GET_PLAYER_EMAIL:
+  case SET_PLAYER_EMAIL:
     return {
       ...state,
-      name: action.email,
+      email: action.email,
     };
-  case GET_PLAYER_TOKEN:
+  case SET_PLAYER_TOKEN:
     return {
       ...state,
       token: action.token,
