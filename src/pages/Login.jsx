@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { setPlayerEmail, setPlayerName, setPlayerToken } from '../store/actions';
+import {
+  setPlayerEmail, setPlayerName, setPlayerToken, fetchQuestions } from '../store/actions';
 import { getToken } from '../services/api';
 import { saveTokenLocal, savePlayerDataLocal } from '../services/handleLocalStorage';
 
@@ -31,11 +32,12 @@ class Login extends React.Component {
   }
 
   async handleClick() {
-    const { setName, setEmail, setToken } = this.props;
+    const { setName, setEmail, setToken, storeQuestions } = this.props;
     const { name, email } = this.state;
 
     const token = await getToken();
 
+    storeQuestions(token);
     setName(name);
     setEmail(email);
     setToken(token);
@@ -91,6 +93,7 @@ const mapDispatchToProps = (dispatch) => ({
   setName: (name) => dispatch(setPlayerName(name)),
   setEmail: (email) => dispatch(setPlayerEmail(email)),
   setToken: (token) => dispatch(setPlayerToken(token)),
+  storeQuestions: (token) => dispatch(fetchQuestions(token)),
 });
 
 const mapStateToProps = (state) => ({

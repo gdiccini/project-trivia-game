@@ -4,7 +4,7 @@ import md5 from 'crypto-js/md5';
 
 class Header extends React.Component {
   getGravatarURL() {
-    const { player: {email} } = this.props;
+    const { player: { email } } = this.props;
     return `https://www.gravatar.com/avatar/${md5(email).toString()}`;
   }
 
